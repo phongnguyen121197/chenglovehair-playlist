@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Music Playlist</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Playlist Tự Động Cộng Đồng</h1>
+      <div class="header-buttons">
+        <button id="refreshButton" class="btn">Làm mới danh sách</button>
+        <a href="/admin.html" class="btn btn-admin">Quản trị</a>
+      </div>
+    </header>
+    
+    <div class="player-container">
+      <div id="current-song-info">
+        <h2 id="now-playing">Đang phát:</h2>
+        <p id="current-title">Chọn một bài hát để bắt đầu</p>
+        <p id="current-suggester" class="suggester-info"></p>
+      </div>
+      
+      <div id="player-controls">
+        <button id="prevBtn" class="control-btn" disabled>⏮️</button>
+        <button id="playBtn" class="control-btn">▶️</button>
+        <button id="nextBtn" class="control-btn" disabled>⏭️</button>
+      </div>
+      
+      <div id="media-embed-container" class="media-embed-container">
+        <!-- Media sẽ được nhúng ở đây -->
+      </div>
+    </div>
+    
+    <div class="suggestion-form">
+      <h3>Đề xuất bài hát</h3>
+      <form id="songSuggestionForm">
+        <div class="form-group">
+          <label for="songInput">Nhập tên bài hát hoặc URL YouTube:</label>
+          <input type="text" id="songInput" required placeholder="VD: Tiến hãy lùi - MIN hoặc dán URL YouTube">
+        </div>
+        <div class="form-group">
+          <label for="suggesterName">Tên của bạn (tùy chọn):</label>
+          <input type="text" id="suggesterName" placeholder="Người đề xuất">
+        </div>
+        <button type="submit" class="btn submit-btn">Đề xuất bài hát</button>
+      </form>
+      <div id="suggestion-status" class="status-message"></div>
+    </div>
+    
+    <div class="playlist-container">
+      <h2>Danh sách bài hát</h2>
+      <ul id="playlist" class="playlist">
+        <li class="loading">Đang tải danh sách phát...</li>
+      </ul>
+    </div>
+    
+    <div class="instructions">
+      <h3>Hướng dẫn sử dụng</h3>
+      <ol>
+        <li>Nhấn vào một bài hát trong danh sách để phát</li>
+        <li>Sử dụng các nút điều khiển để chuyển bài</li>
+        <li>Đề xuất bài hát mới bằng cách nhập tên hoặc URL YouTube</li>
+        <li>Bài hát đề xuất sẽ được phê duyệt trước khi thêm vào playlist</li>
+      </ol>
+    </div>
+  </div>
+  
+  <footer>
+    <p>Playlist tự động phát nhạc từ YouTube</p>
+  </footer>
+  
+  <script src="js/player.js"></script>
+  <script src="js/suggestion.js"></script>
+</body>
+</html>
